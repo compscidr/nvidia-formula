@@ -3,6 +3,15 @@
 
 {% from "nvidia/map.jinja" import nvidia with context %}
 
+# Manually install GPG-Key
+/etc/apt/trusted.gpg.d/nvidia.gpg:
+  file:
+    - managed
+    - source: {{ nvidia.base_url }}/GPGKEY
+    - user: root
+    - group: root
+    - mode: 644
+
 {## Configure package managers for repository information ##}
 nvidia-repo:
   pkgrepo.managed:
