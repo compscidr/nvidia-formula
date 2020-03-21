@@ -13,7 +13,7 @@ nvidia-repo:
     - baseurl: {{ nvidia.base_url }}/rhel$releasever/$basearch
   {% elif salt['grains.get']('os_family') == 'Debian' or 'Ubuntu' %}
     - file: /etc/apt/sources.list.d/nvidia.list
-    - keyurl: {{ nvidia.base_url }}/ubuntu{{ salt['grains.get']('osrelease', '1404') | replace('.','') }}/{{ salt['grains.get']('osarch','x86_64') | replace('amd64','x86_64') }}/7fa2af80.pub
+    - key_url: {{ nvidia.base_url }}/ubuntu{{ salt['grains.get']('osrelease', '1404') | replace('.','') }}/{{ salt['grains.get']('osarch','x86_64') | replace('amd64','x86_64') }}/7fa2af80.pub
     - name: deb {{ nvidia.base_url }}/ubuntu{{ salt['grains.get']('osrelease', '1404') | replace('.','') }}/{{ salt['grains.get']('osarch','x86_64') | replace('amd64','x86_64') }} / 
   {% endif %}
 
