@@ -13,7 +13,9 @@ nvidia-repo:
     - baseurl: {{ nvidia.base_url }}/rhel$releasever/$basearch
   {% elif salt['grains.get']('os_family') == 'Debian' or 'Ubuntu' %}
     - file: /etc/apt/sources.list.d/nvidia.list
+    - keyserver: keyserver.ubuntu.com
     - key_url: salt://nvidia/files/GPGKEY
+    - keyid: F60F4B3D7FA2AF80
     - name: deb {{ nvidia.base_url }}/ubuntu{{ salt['grains.get']('osrelease', '1404') | replace('.','') }}/{{ salt['grains.get']('osarch','x86_64') | replace('amd64','x86_64') }} / 
   {% endif %}
 
