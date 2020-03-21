@@ -3,16 +3,6 @@
 
 {% from "nvidia/map.jinja" import nvidia with context %}
 
-# Manually install GPG-Key
-/etc/apt/trusted.gpg.d/nvidia.gpg:
-  file:
-    - managed
-    - source: {{ nvidia.base_url }}/GPGKEY
-    - source_hash: sha512=dbcf04ba455493fdf2e299641f01c6faa8b8c2a21db01b8127d58a44fff911f4145488ddf5e6786ae15662e072d3ac7cb3f6f3bdfbed86211f2501f01c03b3fb
-    - user: root
-    - group: root
-    - mode: 644
-
 {## Configure package managers for repository information ##}
 nvidia-repo:
   pkgrepo.managed:
@@ -23,7 +13,7 @@ nvidia-repo:
     - baseurl: {{ nvidia.base_url }}/rhel$releasever/$basearch
   {% elif salt['grains.get']('os_family') == 'Debian' or 'Ubuntu' %}
     - file: /etc/apt/sources.list.d/nvidia.list
-    - key_url: {{ nvidia.base_url }}/GPGKEY
+    - key_url: salt/nvidia/files/GPGKEY
     - name: deb {{ nvidia.base_url }}/ubuntu{{ salt['grains.get']('osrelease', '1404') | replace('.','') }}/{{ salt['grains.get']('osarch','x86_64') | replace('amd64','x86_64') }} / 
   {% endif %}
 
