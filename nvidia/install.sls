@@ -8,6 +8,7 @@
   file:
     - managed
     - source: {{ nvidia.base_url }}/GPGKEY
+    - source_hash: sha512=dbcf04ba455493fdf2e299641f01c6faa8b8c2a21db01b8127d58a44fff911f4145488ddf5e6786ae15662e072d3ac7cb3f6f3bdfbed86211f2501f01c03b3fb
     - user: root
     - group: root
     - mode: 644
