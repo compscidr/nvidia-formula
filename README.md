@@ -8,6 +8,9 @@ See the full Salt Formulas installation and usage instructions
 
 Authors
 ----
+Updates for ubuntu 18.04
+ - Jason Ernst (ernstjason1@gmail.com)
+
 (c)2017 University of Washington, Institute for Health Metrics and Evaluation
  - Andrew Ernst (ernstae@github.com)
  - Felix Russell (felix-russell@github.com)
