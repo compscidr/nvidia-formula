@@ -27,6 +27,6 @@ This formula can be called as `salt-call state.sls nvidia` and relies on the pre
 
 Tested Operating Systems
 ----
-* Ubuntu 14.04 16.04
+* Ubuntu 14.04 16.04 18.04
 * Centos 6.x  7.x
 * RedHat 6.x 7.x
